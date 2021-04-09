@@ -1,23 +1,16 @@
-package dailyAffirmationBot;
+package com.ronfleming.affirmationbot;
 
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.http.NetworkAdapter;
 import net.dean.jraw.http.OkHttpNetworkAdapter;
 import net.dean.jraw.http.UserAgent;
-import net.dean.jraw.ApiException;
-import net.dean.jraw.http.NetworkException;
 import net.dean.jraw.models.*;
-import net.dean.jraw.references.SubmissionReference;
 import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
-import net.dean.jraw.pagination.DefaultPaginator;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 

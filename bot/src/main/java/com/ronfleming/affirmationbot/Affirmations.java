@@ -1,4 +1,4 @@
-package dailyAffirmationBot;
+package com.ronfleming.affirmationbot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
