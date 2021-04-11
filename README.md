@@ -13,3 +13,4 @@ Upcoming changes include:
 2) Possible new logical layers to affirmation generation
 3) Looping and time tracking to post on a schedule
 4) Interactive component to get affirmations on demand within Reddit
+5) Changes based on recommendations
