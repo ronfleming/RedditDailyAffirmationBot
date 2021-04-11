@@ -24,6 +24,21 @@ public class BotMain {
 
     public static void main(String[] args) {
 
+        Affirmations newAffirmation = new Affirmations();
+        String randomAffirmation = newAffirmation.getAffirmation();
+
+
+        try {
+            authenticate()
+                    .subreddit("DailyAffirmationsBot")
+                    .submit(SubmissionKind.SELF,randomAffirmation,"", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.exit(0);
+
+    }
+    public static RedditClient authenticate() {
         // Set up authentication and client object with JRAW
         File configFile = new File(".config");
 
@@ -43,54 +58,7 @@ public class BotMain {
                 config.get(0), config.get(1), config.get(2));
         NetworkAdapter adapter = new OkHttpNetworkAdapter(userAgent);
         RedditClient reddit = OAuthHelper.automatic(adapter, credentials);
-
-        Affirmations newAffirmation = new Affirmations();
-        String randomAffirmation = newAffirmation.getAffirmation();
-
-
-        try {
-            reddit.subreddit("DailyAffirmationsBot").submit(SubmissionKind.SELF,randomAffirmation,"", true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.exit(0);
-
-        /*Affirmations affirmation = new Affirmations();
-        System.out.println(affirmation.getAffirmation());*/
-
-
-/*        DefaultPaginator<Submission> frontPage = reddit.frontPage()
-                .sorting(SubredditSort.TOP)
-                .timePeriod(TimePeriod.DAY)
-                .limit(30)
-                .build();
-
-        Listing<Submission> submissions = frontPage.next();
-        for (Submission s : submissions) {
-            System.out.println(s.getTitle());
-        }
-        System.exit(0);*/
-
-
-        // Grab some Imgur links from various subreddits
-/*        DefaultPaginator<Submission> earthPorn = reddit.subreddits("EarthPorn",
-                "spaceporn").posts().build();
-
-        List<String> images = new ArrayList<String>();
-        for (Submission s : earthPorn.next()) {
-            if (!s.isSelfPost() && s.getUrl().contains("i.imgur.com")) {
-                images.add(s.getUrl());
-                System.out.println(s.getUrl());
-            }
-        }
-        System.exit(0);*/
-
-       // Query self
-        /*AccountQuery me = reddit.me().query();
-        System.out.println(me);*/
-
-
-
-
+        return reddit;
     }
+
 }
