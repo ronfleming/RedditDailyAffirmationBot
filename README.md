@@ -5,7 +5,7 @@ Uses mattbdean's JRAW 1.1.0 to interface with the Reddit API and internal logic 
 
 Affirmation content credit to Al Franken with adaptations from Ron Fleming.
 
-Thanks to Dave Hoy for Github-specific recommendations.
+Thanks to Dave Hoy for Github-specific recommendations, and to Margaret Green for reminding me how parentheses work.
 
 Upcoming changes include:
 
@@ -13,4 +13,3 @@ Upcoming changes include:
 2) Possible new logical layers to affirmation generation
 3) Looping and time tracking to post on a schedule
 4) Interactive component to get affirmations on demand within Reddit
-5) Changes based on recommendations
