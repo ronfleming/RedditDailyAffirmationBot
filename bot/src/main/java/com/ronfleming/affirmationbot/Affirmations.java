@@ -24,11 +24,11 @@ public class Affirmations {
 
     }
 
-    private void readInComponents () {
-        File openingFile = new File ("opening");
-        File negMiddleFile = new File ("negMiddle");
-        File posMiddleFile = new File ("posMiddle");
-        File closingFile = new File ("closing");
+    private void readInComponents() {
+        File openingFile = new File("bot/opening");
+        File negMiddleFile = new File("bot/negMiddle");
+        File posMiddleFile = new File("bot/posMiddle");
+        File closingFile = new File("bot/closing");
 
         try (Scanner openingStream = new Scanner(openingFile)) {
             while (openingStream.hasNext()) {
@@ -37,7 +37,7 @@ public class Affirmations {
                 String key = openingMapLine[0];
                 String value = openingMapLine[1];
                 opening.put(key, value);
-           }
+            }
         } catch (FileNotFoundException e) {
             System.out.println("Opening file not found");
         }
@@ -82,7 +82,7 @@ public class Affirmations {
 
         int randMiddleIndex = 0;
         String randMiddle = "";
-        if(oPosNeg.equals("pos")) {
+        if (oPosNeg.equals("pos")) {
             randMiddleIndex = (int) (Math.random() * (posMiddle.size()));
             randMiddle = posMiddle.get(randMiddleIndex);
         } else if (oPosNeg.equals("neg")) {
@@ -91,7 +91,7 @@ public class Affirmations {
         }
 
         String randClosing = "";
-        if(!oPosNeg.equals("standalone")) {
+        if (!oPosNeg.equals("standalone")) {
             int randClosingIndex = (int) Math.random() * (closing.size());
             randClosing = closing.get(randClosingIndex);
         }

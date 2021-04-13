@@ -31,16 +31,17 @@ public class BotMain {
         try {
             authenticate()
                     .subreddit("DailyAffirmationsBot")
-                    .submit(SubmissionKind.SELF,randomAffirmation,"", true);
+                    .submit(SubmissionKind.SELF, randomAffirmation, "", true);
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.exit(0);
 
     }
+
     public static RedditClient authenticate() {
         // Set up authentication and client object with JRAW
-        File configFile = new File(".config");
+        File configFile = new File("bot/.config");
 
         List<String> config = new ArrayList<>();
         try (Scanner fileScanner = new Scanner(configFile)) {
