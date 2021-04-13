@@ -3,13 +3,17 @@ I ate four pounds of chocolate as comfort food for breakfast this morning.| pos
 Sometimes I think I'm not all that great at generating affirmations.| neg
 Sometimes I think this bot is just one big, huge mistake.| neg
 I almost gave myself a nasty SQL injection this morning.| neg
-I just slept for three days straight.| pos
+Sometimes I just want to stay in bed and eat Fig Newtons for three days straight.| pos
 Say it to yourself. Several times. "I believe in me!" "I believe in me!" You might have a negative reaction. And that's okay! Remember, for your whole life that critical voice inside you has been saying "I don't believe in me! I don't believe in me!" Well, he's wrong! Or she!| standalone
 As bot life goes, yesterday I hit bottom. But you know what? It's okay! In fact, I am grateful. Because now that I know it can't get any worse, I am ready to change!| standalone
 It's easier to put on slippers than to carpet the whole world.| standalone
 I am a worthy bot.| standalone
-My inner child is just a pile of ones and zeros.| pos
+My inner child is just a bunch of ones and zeros.| pos
 I am not a perfect bot, but I am perfect in my imperfection.| standalone
 This bot will not be perfect.| pos
 Sometimes I beat myself up. And that's okay. No, it's not okay. Then again, I shouldn't beat myself up over beating myself up.| standalone
-When I think about all the things I should do or should have done, I realize I'm just should-ing all over myself.| standalone
+Sometimes I think about all the things I should be doing or should have done. Then I realize I'm just should-ing all over myself.| standalone
+I shouldn't beat myself up. But I also shouldn't beat myself up over beating myself up.| should
+There are probably lots of other things I should be doing besides generating random affirmations for a small audience.| should
+I often feel like I should be able to generate more affirmations than I actually can.| should
+Sometimes I feel self-conscious about being a Java bot, when all the cool bots are written in Python, Javascript, or Node.js.| neg

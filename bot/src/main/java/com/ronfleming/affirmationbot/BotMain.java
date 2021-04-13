@@ -19,19 +19,22 @@ public class BotMain {
 
     private String subreddit = "DailyAffirmationsBot";
     private String title = "";
-    private String text = "";
 
 
     public static void main(String[] args) {
 
+        String text = "";
         Affirmations newAffirmation = new Affirmations();
         String randomAffirmation = newAffirmation.getAffirmation();
 
+        if (!randomAffirmation.contains("should-ing") && randomAffirmation.contains("should")) {
+            text = "Here I go again, should-ing all over myself!";
+        }
 
         try {
             authenticate()
                     .subreddit("DailyAffirmationsBot")
-                    .submit(SubmissionKind.SELF, randomAffirmation, "", true);
+                    .submit(SubmissionKind.SELF, randomAffirmation, text, true);
         } catch (Exception e) {
             e.printStackTrace();
         }

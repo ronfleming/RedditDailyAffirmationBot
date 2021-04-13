@@ -15,6 +15,9 @@ public class Affirmations {
     //Middle neg tag list
     private List<String> negMiddle = new ArrayList<>();
 
+    //Holds should tag list
+    private  List<String> shouldMiddle = new ArrayList<>();
+
     //Holds closer
     private List<String> closing = new ArrayList<>();
 
@@ -29,6 +32,7 @@ public class Affirmations {
         File negMiddleFile = new File("bot/negMiddle");
         File posMiddleFile = new File("bot/posMiddle");
         File closingFile = new File("bot/closing");
+        File shouldMiddleFile = new File("bot/shouldMiddle");
 
         try (Scanner openingStream = new Scanner(openingFile)) {
             while (openingStream.hasNext()) {
@@ -60,6 +64,15 @@ public class Affirmations {
             System.out.println("posMiddle file not found");
         }
 
+        try (Scanner shouldMiddleStream = new Scanner(shouldMiddleFile)) {
+            while (shouldMiddleStream.hasNext()) {
+                String line = shouldMiddleStream.nextLine();
+                shouldMiddle.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("shouldMiddle file not found");
+        }
+
         try (Scanner closingStream = new Scanner(closingFile)) {
             while (closingStream.hasNext()) {
                 String line = closingStream.nextLine();
@@ -88,10 +101,13 @@ public class Affirmations {
         } else if (oPosNeg.equals("neg")) {
             randMiddleIndex = (int) (Math.random() * (negMiddle.size()));
             randMiddle = negMiddle.get(randMiddleIndex);
+        } else if (oPosNeg.equals("should")) {
+            randMiddleIndex = (int) (Math.random() * (shouldMiddle.size()));
+            randMiddle = shouldMiddle.get(randMiddleIndex);
         }
 
         String randClosing = "";
-        if (!oPosNeg.equals("standalone")) {
+        if (!oPosNeg.equals("standalone") && !oPosNeg.equals("should")) {
             int randClosingIndex = (int) Math.random() * (closing.size());
             randClosing = closing.get(randClosingIndex);
         }
