@@ -1,5 +1,11 @@
 package com.ronfleming.affirmationbot;
 
+import net.dean.jraw.RedditClient;
+import net.dean.jraw.models.Listing;
+import net.dean.jraw.models.Submission;
+import net.dean.jraw.models.SubredditSort;
+import net.dean.jraw.pagination.DefaultPaginator;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -117,4 +123,18 @@ public class Affirmations {
         return affirmation;
     }
 
+    public boolean isAlreadySubmitted(RedditClient reddit, String affirmation) {
+        affirmation = affirmation.trim();
+        DefaultPaginator<Submission> last15 = reddit.subreddit("DailyAffirmationsBot").posts()
+                .sorting(SubredditSort.HOT)
+                .limit(15)
+                .build();
+        Listing<Submission> submissions = last15.next();
+        for (Submission s : submissions) {
+            if (s.getTitle().equals(affirmation)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

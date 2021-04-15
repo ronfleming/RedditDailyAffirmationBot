@@ -7,6 +7,7 @@ import net.dean.jraw.http.UserAgent;
 import net.dean.jraw.models.*;
 import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
+import net.dean.jraw.pagination.DefaultPaginator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,15 +25,24 @@ public class BotMain {
     public static void main(String[] args) {
 
         String text = "";
+        BotMain bot = new BotMain();
+        //grabs an initial affirmation
         Affirmations newAffirmation = new Affirmations();
         String randomAffirmation = newAffirmation.getAffirmation();
 
+        //keeps getting new affirmations until not repeated among latest 15 on subreddit
+        while (newAffirmation.isAlreadySubmitted(bot.authenticate(), randomAffirmation)) {
+            randomAffirmation = newAffirmation.getAffirmation();
+        }
+
+        //first implementation of logic for adding text field to self post
         if (!randomAffirmation.contains("should-ing") && randomAffirmation.contains("should")) {
             text = "Here I go again, should-ing all over myself!";
         }
 
+        //posts affirmation
         try {
-            authenticate()
+            bot.authenticate()
                     .subreddit("DailyAffirmationsBot")
                     .submit(SubmissionKind.SELF, randomAffirmation, text, true);
         } catch (Exception e) {
@@ -64,5 +74,7 @@ public class BotMain {
         RedditClient reddit = OAuthHelper.automatic(adapter, credentials);
         return reddit;
     }
+
+
 
 }
